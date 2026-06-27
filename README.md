@@ -1,32 +1,40 @@
-# Spotify Tracks Genre Classification Project
+# Spotify Tracks 音乐类型分类项目
 
-## 中文版
+本项目为 **Python and Advanced Data Science** 课程最终小组项目。项目基于 Spotify Tracks Dataset，使用歌曲的音频特征进行数据分析，并构建机器学习 / 深度学习模型预测歌曲的音乐类型 `track_genre`。
 
-### 项目简介
+## 数据集
 
-本项目基于 **Spotify Tracks Dataset**，使用歌曲的音频特征进行数据分析，并构建机器学习 / 深度学习模型来预测歌曲的音乐类型 `track_genre`。
+数据文件位于：
 
-主要任务是理解数据、清洗数据、进行探索性数据分析，并比较不同模型在音乐类型分类任务上的表现。
-
----
-
-### GitHub 使用规范
-
-为了避免多人同时修改同一个文件造成冲突，本项目采用 **每个人单独建立分支、只更新自己负责的 notebook** 的协作方式。
-
-#### 1. 不要直接修改 `main` 分支
-
-`main` 分支只用于保存稳定版本。所有成员都不应该直接在 `main` 分支上修改文件。
-
-每次开始工作前，先从 `main` 创建自己的分支，例如：
-
-```bash
-git checkout main
-git pull origin main
-git checkout -b your-name-working-branch
+```text
+dataset/dataset.csv
 ```
 
-分支命名示例：
+目标变量为：
+
+```text
+track_genre
+```
+
+主要使用的特征包括歌曲的音频属性，例如：
+
+- popularity
+- duration_ms
+- danceability
+- energy
+- loudness
+- acousticness
+- instrumentalness
+- valence
+- tempo
+
+## GitHub 使用规范
+
+为避免多人同时修改同一文件造成冲突，本项目采用分支协作方式。
+
+### 1. 每个人使用自己的分支
+
+不要直接在 `main` 分支上修改文件。每位成员应创建自己的分支进行开发，例如：
 
 ```text
 xinran-working
@@ -35,20 +43,9 @@ heyi-working
 weiye-working
 ```
 
-也可以按照任务命名：
+### 2. 每个人维护自己的 Notebook
 
-```text
-feature/data-cleaning
-feature/eda
-feature/baseline-models
-feature/advanced-models
-```
-
----
-
-#### 2. 每个人只更新自己的 notebook
-
-每位成员应该在 `notebooks/` 文件夹中创建并维护自己的工作 notebook，例如：
+每位成员在 `notebooks/` 文件夹中创建自己的 notebook，例如：
 
 ```text
 notebooks/xinran_work.ipynb
@@ -57,205 +54,105 @@ notebooks/heyi_work.ipynb
 notebooks/weiye_work.ipynb
 ```
 
-可以查看其他成员的 notebook，也可以运行和测试其他成员的代码，但不要直接修改其他成员的 notebook。
+可以查看和运行其他成员的代码，但不要直接修改他人的 notebook。
 
-如果发现其他成员的代码有问题，建议：
+如果发现其他成员的代码有问题，可以在小组内沟通，或在自己的 notebook 中测试修改方案。
 
-1. 在小组沟通中说明问题；
-2. 或者在自己的分支中进行测试；
-3. 不要直接覆盖别人的文件。
+### 3. 提交自己的修改
 
----
-
-#### 3. 每次更新前先同步远程仓库
-
-开始工作前建议先执行：
-
-```bash
-git checkout main
-git pull origin main
-git checkout your-name-working-branch
-git merge main
-```
-
-这样可以保证自己的分支基于最新版本，减少后续合并冲突。
-
----
-
-#### 4. 提交代码时写清楚 commit message
-
-每次完成一个小更新后，使用清楚的 commit message。
+完成修改后，将自己的 notebook 提交到自己的分支。
 
 示例：
 
 ```bash
-git add notebooks/xinran_work.ipynb
-git commit -m "update data cleaning notebook"
-git push origin xinran-working
+git add notebooks/your_notebook.ipynb
+git commit -m "update notebook"
+git push origin your-branch-name
 ```
 
-推荐的 commit message 风格：
+### 4. 合并前检查
 
-```text
-update data cleaning notebook
-add EDA visualizations
-add baseline model results
-fix preprocessing code
-update model comparison table
-```
+合并到 `main` 前，请确认：
 
----
+- notebook 可以正常打开
+- 主要代码可以运行
+- 没有修改或删除他人的文件
+- 没有上传无关文件
 
-#### 5. 合并到 `main` 前先检查
+建议通过 Pull Request 合并到 `main`，不要直接覆盖主分支内容。
 
-将自己的分支合并到 `main` 前，需要确认：
-
-- notebook 可以正常打开；
-- 主要代码 cell 可以正常运行；
-- 没有误删其他人的文件；
-- 没有上传无关的大文件或临时文件；
-- 图表、结果表和说明文字是清楚的。
-
-建议通过 Pull Request 合并到 `main`，不要直接强制 push。
-
----
-
-#### 6. 不要上传无关文件
-
-请不要上传以下内容：
-
-```text
-.DS_Store
-.ipynb_checkpoints/
-__pycache__/
-临时测试文件
-本地环境文件
-过大的模型文件
-无关截图
-```
-
-如果需要保存图表，可以放在：
-
-```text
-figures/
-```
-
-如果需要保存模型结果表，可以放在：
-
-```text
-results/
-```
-
----
-
-### 建议的仓库结构
+## 项目结构
 
 ```text
 spotify-tracks-final-project/
-├── dataset/                 # 数据集和数据说明
-├── notebooks/               # 每位成员的工作 notebook 和最终 notebook
-├── figures/                 # 可视化图表
-├── results/                 # 模型评价结果和比较表
-├── requirement/             # 老师提供的项目要求文件
-├── README.md                # 项目说明和 GitHub 使用规范
-├── requirements.txt         # Python 依赖包
-└── .gitignore               # Git 忽略规则
+├── dataset/          # 数据集
+├── notebooks/        # 小组成员的 notebooks
+├── figures/          # 图表文件
+├── results/          # 模型结果
+├── requirement/      # 老师提供的项目要求
+├── README.md
+├── requirements.txt
+└── .gitignore
 ```
 
----
+## Notebook 建议框架
 
-### Notebook 建议框架
-
-最终 notebook 可以按照下面的结构整理。每一部分不仅需要代码，也需要 Markdown 解释说明“做了什么、为什么这样做、结果说明了什么”。
+最终 notebook 建议按照以下结构整理：
 
 ```text
 1. Project Introduction
-   - 项目背景
-   - 问题定义
-   - 项目目标
-
 2. Dataset Overview
-   - 数据来源
-   - 数据规模
-   - 字段说明
-   - 目标变量说明
-
 3. Data Cleaning
-   - 缺失值检查和处理
-   - 重复值检查和处理
-   - 异常值检查和处理
-   - 删除无用字段
-
 4. Exploratory Data Analysis
-   - 音乐类型分布
-   - popularity 分布
-   - 主要音频特征分布
-   - 相关性分析
-   - 不同音乐类型之间的特征比较
-
 5. Data Preprocessing
-   - 特征选择
-   - 类别变量编码
-   - 标准化 / 归一化
-   - train-test split
-
 6. Baseline Models
-   - Logistic Regression
-   - KNN
-   - Decision Tree
-   - 初步模型评价
-
 7. Advanced Models
-   - Random Forest / ensemble model
-   - Neural Network / deep learning model
-
 8. Hyperparameter Tuning
-   - 调参方法
-   - 调参前后结果比较
-
 9. Model Evaluation and Comparison
-   - Accuracy
-   - Macro F1-score
-   - Weighted F1-score
-   - 模型结果比较表
-   - 错误分析
-
 10. Conclusion
-   - 主要发现
-   - 最佳模型
-   - 项目限制
-   - 未来改进方向
 ```
+
+每一部分应包含代码和必要的文字说明，解释做了什么、为什么这样做，以及结果说明了什么。
 
 ---
 
-## English Version
+# Spotify Tracks Genre Classification Project
 
-### Project Overview
+This is the final group project for the **Python and Advanced Data Science** course. The project is based on the Spotify Tracks Dataset. We use audio features of songs for data analysis and build machine learning / deep learning models to predict the music genre `track_genre`.
 
-This project is based on the **Spotify Tracks Dataset**. The goal is to analyze audio features of songs and build machine learning / deep learning models to predict the music genre, represented by `track_genre`.
+## Dataset
 
-The main workflow includes understanding the dataset, cleaning the data, performing exploratory data analysis, and comparing different models for the music genre classification task.
+The dataset file is located at:
 
----
-
-### GitHub Collaboration Rules
-
-To avoid conflicts caused by multiple people editing the same file at the same time, this project follows a **separate-branch and separate-notebook workflow**.
-
-#### 1. Do not directly modify the `main` branch
-
-The `main` branch should only contain stable versions of the project. Team members should not work directly on `main`.
-
-Before starting your work, create your own branch from `main`:
-
-```bash
-git checkout main
-git pull origin main
-git checkout -b your-name-working-branch
+```text
+dataset/dataset.csv
 ```
 
-Example branch names:
+The target variable is:
+
+```text
+track_genre
+```
+
+The main features are audio attributes of songs, such as:
+
+- popularity
+- duration_ms
+- danceability
+- energy
+- loudness
+- acousticness
+- instrumentalness
+- valence
+- tempo
+
+## GitHub Rules
+
+To avoid conflicts caused by multiple people editing the same file, this project uses a branch-based workflow.
+
+### 1. Each member uses their own branch
+
+Do not modify files directly on the `main` branch. Each member should create their own branch for development, for example:
 
 ```text
 xinran-working
@@ -264,20 +161,9 @@ heyi-working
 weiye-working
 ```
 
-Task-based branch names are also acceptable:
+### 2. Each member maintains their own Notebook
 
-```text
-feature/data-cleaning
-feature/eda
-feature/baseline-models
-feature/advanced-models
-```
-
----
-
-#### 2. Each member should only update their own notebook
-
-Each member should create and maintain their own working notebook inside the `notebooks/` folder, for example:
+Each member should create their own notebook in the `notebooks/` folder, for example:
 
 ```text
 notebooks/xinran_work.ipynb
@@ -286,172 +172,62 @@ notebooks/heyi_work.ipynb
 notebooks/weiye_work.ipynb
 ```
 
-You may view other members' notebooks and run their code for testing, but you should not directly modify another member's notebook.
+You may view and run other members' code, but do not directly modify another member's notebook.
 
-If you find an issue in someone else's code, please:
+If you find an issue in someone else's code, discuss it with the group or test your solution in your own notebook.
 
-1. Discuss it with the team;
-2. Test it in your own branch if needed;
-3. Do not overwrite another member's file directly.
+### 3. Commit your own changes
 
----
-
-#### 3. Sync with the remote repository before updating your work
-
-Before starting your work, it is recommended to run:
-
-```bash
-git checkout main
-git pull origin main
-git checkout your-name-working-branch
-git merge main
-```
-
-This keeps your branch up to date and reduces merge conflicts later.
-
----
-
-#### 4. Use clear commit messages
-
-After completing a small update, commit it with a clear message.
+After finishing your changes, commit your notebook to your own branch.
 
 Example:
 
 ```bash
-git add notebooks/xinran_work.ipynb
-git commit -m "update data cleaning notebook"
-git push origin xinran-working
+git add notebooks/your_notebook.ipynb
+git commit -m "update notebook"
+git push origin your-branch-name
 ```
 
-Recommended commit message examples:
+### 4. Check before merging
 
-```text
-update data cleaning notebook
-add EDA visualizations
-add baseline model results
-fix preprocessing code
-update model comparison table
-```
+Before merging into `main`, please make sure that:
 
----
+- the notebook can be opened correctly
+- the main code cells can run
+- you did not modify or delete other members' files
+- no unrelated files are uploaded
 
-#### 5. Check your work before merging into `main`
+It is recommended to merge through a Pull Request instead of directly overwriting the main branch.
 
-Before merging your branch into `main`, make sure that:
-
-- the notebook can be opened correctly;
-- the main code cells can run successfully;
-- you did not accidentally delete other members' files;
-- no unrelated large files or temporary files are uploaded;
-- figures, result tables, and explanations are clear.
-
-It is recommended to merge through a Pull Request instead of force pushing directly to `main`.
-
----
-
-#### 6. Do not upload unrelated files
-
-Please avoid uploading files such as:
-
-```text
-.DS_Store
-.ipynb_checkpoints/
-__pycache__/
-temporary test files
-local environment files
-large model files
-unrelated screenshots
-```
-
-If you need to save figures, place them in:
-
-```text
-figures/
-```
-
-If you need to save model result tables, place them in:
-
-```text
-results/
-```
-
----
-
-### Suggested Repository Structure
+## Project Structure
 
 ```text
 spotify-tracks-final-project/
-├── dataset/                 # Dataset and dataset description
-├── notebooks/               # Working notebooks and final notebook
-├── figures/                 # Visualization outputs
-├── results/                 # Model evaluation results and comparison tables
-├── requirement/             # Project requirement files provided by the instructor
-├── README.md                # Project description and GitHub collaboration rules
-├── requirements.txt         # Python dependencies
-└── .gitignore               # Git ignore rules
+├── dataset/          # dataset
+├── notebooks/        # team members' notebooks
+├── figures/          # figures and plots
+├── results/          # model results
+├── requirement/      # project requirements from the instructor
+├── README.md
+├── requirements.txt
+└── .gitignore
 ```
 
----
+## Suggested Notebook Framework
 
-### Suggested Notebook Framework
-
-The final notebook can be organized using the following structure. Each section should include both code and Markdown explanations describing what was done, why it was done, and what the results mean.
+The final notebook is recommended to follow this structure:
 
 ```text
 1. Project Introduction
-   - Background
-   - Problem statement
-   - Project goals
-
 2. Dataset Overview
-   - Data source
-   - Dataset size
-   - Column descriptions
-   - Target variable explanation
-
 3. Data Cleaning
-   - Missing value checking and handling
-   - Duplicate checking and handling
-   - Invalid value checking and handling
-   - Removing unnecessary columns
-
 4. Exploratory Data Analysis
-   - Genre distribution
-   - Popularity distribution
-   - Main audio feature distributions
-   - Correlation analysis
-   - Feature comparison across genres
-
 5. Data Preprocessing
-   - Feature selection
-   - Categorical encoding
-   - Standardization / normalization
-   - Train-test split
-
 6. Baseline Models
-   - Logistic Regression
-   - KNN
-   - Decision Tree
-   - Initial model evaluation
-
 7. Advanced Models
-   - Random Forest / ensemble model
-   - Neural Network / deep learning model
-
 8. Hyperparameter Tuning
-   - Tuning methods
-   - Comparison before and after tuning
-
 9. Model Evaluation and Comparison
-   - Accuracy
-   - Macro F1-score
-   - Weighted F1-score
-   - Model comparison table
-   - Error analysis
-
 10. Conclusion
-   - Main findings
-   - Best model
-   - Limitations
-   - Future improvements
 ```
+
+Each section should include both code and necessary explanations, describing what was done, why it was done, and what the results mean.
