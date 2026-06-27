@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# Jupyter
+*.nbconvert.ipynb
+
+# Local outputs / heavy generated files
+models/
+*.pkl
+*.joblib
+*.h5
+*.keras
+
+# Temporary files
+*.tmp
+*.log
+
+# Keep project data unless intentionally removed
+# dataset/dataset.csv is intentionally tracked for this course project.
