@@ -34,29 +34,45 @@ track_genre
 
 ### 1. 每个人使用自己的分支
 
-不要直接在 `main` 分支上修改文件。每位成员应创建自己的分支进行开发，例如：
+不要直接在 `main` 分支上修改文件。每位成员应在自己的分支上完成修改。
+
+分支命名格式建议为：
 
 ```text
-xinran-working
-siyuan-working
-heyi-working
-weiye-working
+task-name
+```
+
+例如：
+
+```text
+data-processing-name
+eda-name
+baseline-modeling-name
+advanced-modeling-name
 ```
 
 ### 2. 每个人维护自己的 Notebook
 
-每位成员在 `notebooks/` 文件夹中创建自己的 notebook，例如：
+每位成员在 `notebooks/` 文件夹中维护自己的 notebook。
+
+Notebook 命名格式建议为：
 
 ```text
-notebooks/xinran_work.ipynb
-notebooks/siyuan_work.ipynb
-notebooks/heyi_work.ipynb
-notebooks/weiye_work.ipynb
+name_task.ipynb
+```
+
+例如：
+
+```text
+notebooks/name_data_processing.ipynb
+notebooks/name_eda.ipynb
+notebooks/name_baseline_modeling.ipynb
+notebooks/name_advanced_modeling.ipynb
 ```
 
 可以查看和运行其他成员的代码，但不要直接修改他人的 notebook。
 
-如果发现其他成员的代码有问题，可以在小组内沟通，或在自己的 notebook 中测试修改方案。
+如果需要修改别人的代码，请先在小组内沟通。
 
 ### 3. 提交自己的修改
 
@@ -152,29 +168,45 @@ To avoid conflicts caused by multiple people editing the same file, this project
 
 ### 1. Each member uses their own branch
 
-Do not modify files directly on the `main` branch. Each member should create their own branch for development, for example:
+Do not modify files directly on the `main` branch. Each member should work on their own branch.
+
+The recommended branch naming format is:
 
 ```text
-xinran-working
-siyuan-working
-heyi-working
-weiye-working
+task-name
+```
+
+For example:
+
+```text
+data-processing-name
+eda-name
+baseline-modeling-name
+advanced-modeling-name
 ```
 
 ### 2. Each member maintains their own Notebook
 
-Each member should create their own notebook in the `notebooks/` folder, for example:
+Each member should maintain their own notebook inside the `notebooks/` folder.
+
+The recommended notebook naming format is:
 
 ```text
-notebooks/xinran_work.ipynb
-notebooks/siyuan_work.ipynb
-notebooks/heyi_work.ipynb
-notebooks/weiye_work.ipynb
+name_task.ipynb
+```
+
+For example:
+
+```text
+notebooks/name_data_processing.ipynb
+notebooks/name_eda.ipynb
+notebooks/name_baseline_modeling.ipynb
+notebooks/name_advanced_modeling.ipynb
 ```
 
 You may view and run other members' code, but do not directly modify another member's notebook.
 
-If you find an issue in someone else's code, discuss it with the group or test your solution in your own notebook.
+If changes are needed, discuss them with the group first.
 
 ### 3. Commit your own changes
 
