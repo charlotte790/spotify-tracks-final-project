@@ -1,0 +1,4 @@
+Model,Top3_Accuracy
+Random Forest,0.45626079638570227
+Neural Network,0.337910262656686
+Tuned Random Forest,0.467023962439651
